@@ -1,3 +1,3 @@
 import anime from 'animejs/lib/anime.es.js';
-import style from './../styles/style.css';
+import '../styles/index.css';
 console.log("sdfysdf");
