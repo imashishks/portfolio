@@ -4,7 +4,7 @@ html, body {
     overflow-x: hidden;
 }
 body{
-    --text-color: #222;
+    --text-color: #333;
     --bkg-color: #fff;
 }
 body.dark-theme {
@@ -17,6 +17,10 @@ body {
     color: var(--text-color);
     background: var(--bkg-color);
     transition: all 500ms;
-    cursor: none;
+    /* cursor: none; */
 }
-
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
