@@ -56,17 +56,25 @@ class HomeComponent extends HTMLElement {
                 <path class="w2" d="M155 182L128 276" stroke="#999999" stroke-width="40" stroke-linecap="round"/>
                 <path class="w3" d="M90 208L51.9999 275.615" stroke="#555555" stroke-width="40" stroke-linecap="round"/>
                 <path class="w4" d="M90 208L128 275.615" stroke="#555555" stroke-width="40" stroke-linecap="round"/>
-                <path d="M500 181V275" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
-                <path d="M500.5 275L570.5 275" stroke="#333333" stroke-width="40" stroke-linecap="round"/>
-                <path d="M780 182V232" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
-                <path d="M780.5 276L779.793 276.707" stroke="#333333" stroke-width="40" stroke-linecap="round"/>
-                <path d="M361 234L431.5 275" stroke="#333333" stroke-width="40" stroke-linecap="round"/>
-                <path d="M361 181V275" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
-                <circle cx="395" cy="214" r="34" stroke="#999999" stroke-width="40"/>
-                <circle cx="669" cy="228" r="48" stroke="#333333" stroke-width="40"/>
-                <path d="M619 181V275" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
-                <path d="M619 276V275" stroke="#999999" stroke-width="40" stroke-linecap="round"/>
                 <circle class="o2" cx="251" cy="228" r="48" stroke="#333333" stroke-width="40"/>
+                <path class="r1" d="M361 234L431.5 275" stroke="#333333" stroke-width="40" stroke-linecap="round"/>
+                <path class="r2" d="M361 181V275" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
+                <circle class="r3"  cx="395" cy="214" r="34" stroke="#999999" stroke-width="40"/>
+                <path class="l6" d="M500 181V275" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
+                <path class="l5" d="M500.5 275L570.5 275" stroke="#333333" stroke-width="40" stroke-linecap="round"/>
+                <circle class="d1" cx="669" cy="228" r="48" stroke="#333333" stroke-width="40"/>
+                <path class="d2"  d="M619 181V275" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
+                <path class="d3" d="M619 276V275" stroke="#999999" stroke-width="40" stroke-linecap="round"/>
+
+
+
+
+                
+                <path  class="ex1" d="M780 182V232" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
+
+                <path class="ex2" d="M780.5 276L779.793 276.707" stroke="#333333" stroke-width="40" stroke-linecap="round"/>
+ 
+
             </svg>
            
 
@@ -118,6 +126,30 @@ class HomeComponent extends HTMLElement {
                 name: ".l4"
             }, {
                 name: ".l3"
+            }],
+            [{
+                name: ".r1"
+            }, {
+                name: ".r2"
+            },{
+                name: ".r3"
+            }],
+            [{
+                name: ".l5"
+            }, {
+                name: ".l6"
+            }],
+            [{
+                name: ".d1"
+            }, {
+                name: ".d2"
+            },{
+                name: ".d3"
+            }],
+            [{
+                name: ".ex1"
+            }, {
+                name: ".ex2"
             }],
            
         ]
@@ -182,6 +214,22 @@ class HomeComponent extends HTMLElement {
                 delay: 110,
                 easing: 'easeInOutQuad'
             }
+        });
+        timeline.add({
+            targets: that.shadowRoot.querySelector(".o2"),
+            opacity: {
+                value: [0, 1],
+                duration: 500,
+                delay: 0,
+                easing: 'easeInOutQuad'
+            },
+
+            // scale: {
+            //     value: [0.8, 1],
+            //     duration: 1500,
+            //     delay: 110,
+            //     easing: 'easeInOutQuad'
+            // }
         });
 
     }
