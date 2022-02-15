@@ -66,10 +66,6 @@ class HomeComponent extends HTMLElement {
                 <path class="d2"  d="M619 181V275" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
                 <path class="d3" d="M619 276V275" stroke="#999999" stroke-width="40" stroke-linecap="round"/>
 
-
-
-
-                
                 <path  class="ex1" d="M780 182V232" stroke="#777777" stroke-width="40" stroke-linecap="round"/>
 
                 <path class="ex2" d="M780.5 276L779.793 276.707" stroke="#333333" stroke-width="40" stroke-linecap="round"/>
