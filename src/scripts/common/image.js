@@ -10,7 +10,6 @@ style.replaceSync(`
         width: 100%;
         position: absolute;
         border: 2px solid black;
-
     }
     .image {
         position: relative;
@@ -39,12 +38,11 @@ class ImageComponent extends HTMLElement {
         const imgElement = this.shadowRoot.querySelector(".image");
         const container = this.shadowRoot.querySelector(".image-container");
         imgElement.src = this.getAttribute('src'); 
-        
+        imgElement.style.cssText += this.getAttribute('style');
         imgElement.onload = ()=>{
             container.style.height = `${imgElement.clientHeight}px`;
         }
         this.setBorderProperties();
-        
     }
     setBorderProperties(){
 
@@ -54,7 +52,6 @@ class ImageComponent extends HTMLElement {
 
         // position
         const positions = this.getAttribute('borderPosition') && this.getAttribute('borderPosition').split(' ');
-        console.log(this.getAttribute('borderPosition'));
         positions.forEach((position)=>{
             borderElement.style[position] = `${this.getAttribute('borderOffset')}px`;
         })
