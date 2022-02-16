@@ -35,7 +35,6 @@ class ImageComponent extends HTMLElement {
         `;
     }
     connectedCallback() {
-        console.log(this.getAttribute('src'));
         this.shadowRoot.innerHTML = this.render();  
         const imgElement = this.shadowRoot.querySelector(".image");
         const container = this.shadowRoot.querySelector(".image-container");
