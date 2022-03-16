@@ -1,6 +1,6 @@
-import globalstyle from "../globalstyle";
+import globalstyle from "../../globalstyle";
 const style = new CSSStyleSheet();
-import me from '../../assets/images/me.png';
+import me from '../../../assets/images/me.png';
 style.replaceSync(`
     .image-container {
         position: relative;
@@ -41,8 +41,10 @@ class ImageComponent extends HTMLElement {
         imgElement.style.cssText += this.getAttribute('style');
         imgElement.onload = ()=>{
             container.style.height = `${imgElement.clientHeight}px`;
+            container.style.width = `${imgElement.clientWidth}px`;
+            this.setBorderProperties();
         }
-        this.setBorderProperties();
+        
     }
     setBorderProperties(){
 
@@ -62,6 +64,7 @@ class ImageComponent extends HTMLElement {
         // background filled
         if(this.getAttribute('borderFilled') === 'true')
             borderElement.style.background  = this.getAttribute('borderColor');
+
     }
    
 }

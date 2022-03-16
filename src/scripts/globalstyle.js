@@ -1,5 +1,5 @@
 const  globalStyle = new CSSStyleSheet();
-const marginSizes = [5,10,20,30];
+const marginSizes = [5,10,20,30,50,70,100,150];
 const fontSizes = {
     xs : 0.75,
     sm: 0.875,
@@ -38,12 +38,10 @@ for(let marginSize of marginSizes){
 }
 
 for(let fontSize in fontSizes){
-    console.log(fontSize);
     fontSizeStyle+= `
         .f-${fontSize} {
             font-size: ${fontSizes[fontSize]}rem;
         }
-
     `
 }
 
@@ -71,6 +69,15 @@ globalStyle.replaceSync(`
     }
     .flex-hor-center{
         justify-content: center;
+    }
+    .flex-hor-end{
+        justify-content: flex-end;
+    }
+    .flex-hor-evenly{
+        justify-content: space-evenly;
+    }
+    .flex-wrap {
+        flex-wrap : wrap;
     }
     ${marginStyle}
 

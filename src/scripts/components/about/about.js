@@ -5,28 +5,7 @@ import me from '../../../assets/images/me.png';
 import circlePattern from '../../../assets/images/circle_pattern.svg';
 const style = new CSSStyleSheet();
 style.replaceSync(`
-    .home{
-        width: 100%;
-        height: 100vh;
-        background: url(${wave}) repeat-x; 
-        background-size: 100%;
-        background-position: 50%;
-
-        font-family: Urbanist;
-        postion:absolute;
-        bottom:0;
-        left:0;
-    }
-    svg{
-        width:80%;
-        height:auto;
-    }
-    svg path{
-        mix-blend-mode:multiply;
-    }
-    svg circle{
-        mix-blend-mode:multiply;
-    }
+    
     .profile-img-container{
         position:relative;
         display: flex;
@@ -42,6 +21,7 @@ style.replaceSync(`
     .about{
         margin: auto;
         width: 80%;
+        max-width: 1200px;
         height: 100vh;
     }
     .profile-img{

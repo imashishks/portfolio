@@ -1,4 +1,7 @@
 module.exports = {
     presets: ["@babel/preset-env"],
-    plugins:["@babel/plugin-syntax-import-assertions"]
+    plugins:[
+        "@babel/plugin-syntax-import-assertions",
+        ["@babel/transform-runtime"]
+    ]
 }
