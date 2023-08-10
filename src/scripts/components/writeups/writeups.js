@@ -11,15 +11,19 @@ style.replaceSync(`
         justify-content:flex-end;
     }
    
-    .skills{
-        margin: auto;
+    .writeups {
         width: 80vw;
         max-width: 1500px;
         min-height: 100vh;
         margin-bottom:200px;
     }
-   
-    .skills-container {
+    .writeup-desc {
+        max-width:200px;
+    }
+    .writeup-item {
+        cursor: pointer;
+    }
+    .writeups-container {
         text-align: center;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -33,24 +37,23 @@ class WriteUpsComponent extends HTMLElement {
         this.attachShadow({
             mode: "open"
         });
-      
         this.shadowRoot.adoptedStyleSheets = [globalstyle, style];
-        
     }
     mediumData = [];
     render(response) {
-        const imgStyle ='width:70vw;max-width:300px;max-height:300px;height:70vw; object-fit: cover;';
+        const imgStyle ='max-width:200px;max-height:200px;object-fit: cover;';
         let borderBoolean = false;
         return `
-            <section class="skills flex-container flex-dir-col ">
+            <section class="writeups flex-container flex-dir-col mt-10">
                 <app-heading position='start'>
                     Write Ups
                 </app-heading>
-                <div class="flex-container mt-100 flex-wrap">
-                ${response.items.map(element => {
+                <div class="flex-container flex-hor-center flex-vert-center mt-100 flex-wrap">
+                ${response.items.map((element,index) => {
                     borderBoolean = !borderBoolean;
+                    const divMargin = (index+1) % 2 === 0 ?  'mt-100':'mt-250'  ;
                     return `
-                            <div class="flex-dir-col ml-70 mb-50">
+                            <div onclick="test()" class="writeup-item flex-dir-col ml-70 mb-50 ${divMargin}">
                                 <app-img 
                                     class='writeup-img'
                                     src='${element.thumbnail}' 
@@ -60,47 +63,12 @@ class WriteUpsComponent extends HTMLElement {
                                     borderColor='#000' 
                                     borderFilled='false'>
                                 </app-img>
-                                <p class='mt-50 '><b>${element.title}</b></p>
+                                <p class='writeup-desc mt-50'><b>${element.title}</b></p>
                             </div>
                             `;
 
                 }).join('')}
-                ${response.items.map(element => {
-                    borderBoolean = !borderBoolean;
-                    return `
-                            <div class="flex-dir-col ml-70">
-                                <app-img 
-                                    class='writeup-img'
-                                    src='${element.thumbnail}' 
-                                    style='${imgStyle}'
-                                    borderPosition='${borderBoolean? 'top left': 'top right'}' 
-                                    borderOffset='20'
-                                    borderColor='#000' 
-                                    borderFilled='false'>
-                                </app-img>
-                                <p class='mt-50 '><b>${element.title}</b></p>
-                            </div>
-                            `;
-
-                }).join('')}
-                ${response.items.map(element => {
-                    borderBoolean = !borderBoolean;
-                    return `
-                            <div class="flex-dir-col ml-70">
-                                <app-img 
-                                    class='writeup-img'
-                                    src='${element.thumbnail}' 
-                                    style='${imgStyle}'
-                                    borderPosition='${borderBoolean? 'top left': 'top right'}' 
-                                    borderOffset='20'
-                                    borderColor='#000' 
-                                    borderFilled='false'>
-                                </app-img>
-                                <p class='mt-50 '><b>${element.title}</b></p>
-                            </div>
-                            `;
-
-                }).join('')}
+               
                 
                </div>
                
@@ -111,10 +79,20 @@ class WriteUpsComponent extends HTMLElement {
         const response = await fetch.get(POST_URL);
         console.log(response);
         // only render this section if article data is retreived 
-        if(response && response.status==='ok'){
-            this.shadowRoot.innerHTML = this.render(response);
+        if(response && response.status==='ok') {
+            const resp = {
+                ...response,
+                items:response.items.concat(response.items).concat(response.items)
+            }
+            this.shadowRoot.innerHTML = this.render(resp);
+            const writeups = this.shadowRoot.querySelectorAll('.writeup-item');
+            
+            console.log();
         }
        
+    }
+    test(){
+        console.log('test');
     }
     connectedCallback() {
         this.fetchData();

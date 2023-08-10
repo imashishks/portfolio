@@ -5,7 +5,9 @@ import './components/about/about';
 import './components/skills/skills';
 import './components/writeups/writeups';
 import './components/artshowreel/artshowreel';
+import './components/contact/contact';
 import './common/components/image';
+import './common/components/button';
 
 import './common/components/heading';
 
@@ -22,11 +24,13 @@ class AppComponent{
         const skillsComponent = document.createElement("app-skills");
         const writeUpsComponent = document.createElement("app-writeups");
         const artShowreelComponent = document.createElement("app-artshowreel");
+        const contactComponent = document.createElement("app-contact");
         this.appRef.appendChild(homeComponent);
         this.appRef.appendChild(aboutComponent);
         this.appRef.appendChild(skillsComponent);
         this.appRef.appendChild(writeUpsComponent);
         this.appRef.appendChild(artShowreelComponent);
+        this.appRef.appendChild(contactComponent);
     }
 }
 
