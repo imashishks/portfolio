@@ -10,7 +10,7 @@ import './common/components/image';
 import './common/components/button';
 
 import './common/components/heading';
-
+import Lenis from 'lenis'
 class AppComponent{
     appRef = document.querySelector("#app");
     init(){
@@ -28,7 +28,7 @@ class AppComponent{
         this.appRef.appendChild(homeComponent);
         this.appRef.appendChild(aboutComponent);
         this.appRef.appendChild(skillsComponent);
-        this.appRef.appendChild(writeUpsComponent);
+        // this.appRef.appendChild(writeUpsComponent);
         this.appRef.appendChild(artShowreelComponent);
         this.appRef.appendChild(contactComponent);
     }
@@ -36,3 +36,11 @@ class AppComponent{
 
 const app = new AppComponent();
 app.render();
+const lenis = new Lenis()
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
